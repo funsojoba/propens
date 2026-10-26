@@ -1,0 +1,28 @@
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const nav = document.getElementById('nav');
+
+navToggle.addEventListener('click', () => {
+  const isOpen = nav.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+});
+
+nav.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Footer year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Contact form (placeholder — no backend yet)
+const contactForm = document.getElementById('contactForm');
+const formNote = document.getElementById('formNote');
+
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  formNote.textContent = 'Thanks! This form is not connected yet — placeholder confirmation.';
+  contactForm.reset();
+});
